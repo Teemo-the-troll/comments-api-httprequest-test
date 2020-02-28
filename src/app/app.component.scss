@@ -1,0 +1,11 @@
+a {
+    padding-left: 30px;
+}
+
+label::before {
+    content: "\A";
+}
+
+input::before {
+    content: "\A";
+}

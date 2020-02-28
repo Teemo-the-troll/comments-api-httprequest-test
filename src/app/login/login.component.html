@@ -1,0 +1,11 @@
+<div>
+    <form>
+        <label for="email">E-mail: </label><br>
+        <input type="text" name="email" [(ngModel)]="email" required> <br>
+        <label for="pass">Password: </label><br>
+        <input type="text" name="pass" [(ngModel)]="pass" required>
+        <button (click)="getAcesstoken()">Login!</button> <br>
+    </form>
+</div>
+
+not yet a member? <a routerLink="/register" routerLinkActive="active">Register</a>
