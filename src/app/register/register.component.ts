@@ -21,14 +21,11 @@ export class RegisterComponent implements OnInit {
   passconf
 
   sendReg() {
-    console.log(this.email, this.username, this.password, this.passconf);
-
-
     let body = {
-      email: this.email,
-      username: this.username,
-      password: this.password,
-      password_confirmation: this.passconf
+      email: this.email         ,    
+      username:           this.username,
+      password:  this.password,
+          password_confirmation: this.passconf
     };
 
     let url = "http://85.160.64.233:3000/session/register";

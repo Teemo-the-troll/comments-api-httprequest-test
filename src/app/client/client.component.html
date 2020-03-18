@@ -1,27 +1,29 @@
 <div>
     <form>
-        <input type="text" name="comment" [(ngModel)]="comment" required>
-        <button (click)="postComment()">Post!</button> <br>
+        <label for="comment">What do you want to send?</label><br>
+        <input type="text" name="comment" [(ngModel)]="comment" required> <br>
+        <label for="sendTo">To what person do you want to send this message? (id or username possible)</label><br>
+        <input type="text" name="sendTo" [(ngModel)]="sendTo" required><br>
+        <button (click)="postComment()">Post!</button><br>
     </form>
 </div>
+<div>
+    <form>
+        <label for="comment">how do you want to change your comment?</label><br>
+        <input type="text" name="comment" [(ngModel)]="commentToChange" required><br>
+        <label for="comment">which comment you want to change?</label><br>
+        <input type="number" name="commentID" [(ngModel)]="IDToChange" required><br>
+        <button (click)="editComment()">Change!</button>
+    </form>
+</div>
+<div>
+    <form>
+        <label for="comment">which comment you want to delete?</label><br>
+        <input type="number" name="commentID" [(ngModel)]="IDToDelete" required><br>
+        <button (click)="deleteComment()">Delete!</button>
+    </form>
+</div>
+<div id="users">
 
-
-<div id="info"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 <button (click)="logOut()">Log out</button>

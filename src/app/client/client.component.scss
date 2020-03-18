@@ -1,1 +1,21 @@
-//add more later
+table {
+    background-color: rgb(235, 231, 224);
+}
+
+table>tr.header>th {
+    font-weight: 500;
+}
+
+table {
+    width: 500px;
+}
+
+table>tr>th {
+    text-align: center;
+    border-left: thin;
+    border-right: thin;
+    border-color: darken($color: gray, $amount: 20);
+    border-radius: 2px;
+    border-top: none;
+    border-bottom: thick;
+}
