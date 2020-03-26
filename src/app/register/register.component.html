@@ -4,9 +4,9 @@
     <label for="email">E-mail:</label><br>
     <input type="text" name="email" id="email" [(ngModel)]="email" required><br>
     <label for="pass">Password:</label><br>
-    <input type="text" name="pass" id="pass" [(ngModel)]="password" required><br>
+    <input type="password" name="pass" id="pass" [(ngModel)]="password" required><br>
     <label for="passconf">Password again:</label><br>
-    <input type="text" name="passconf" id="passconf" [(ngModel)]="passconf" required><br>
+    <input type="password" name="passconf" id="passconf" [(ngModel)]="passconf" required><br>
     <button (click)="sendReg()">Register!</button> <br>
 </form>
 Already a member? <a routerLink="/login" routerLinkActive="active">Log in!</a>

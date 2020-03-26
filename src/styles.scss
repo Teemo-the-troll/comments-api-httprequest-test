@@ -1,9 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
 
 label::before {
-    content: "\A";
+  content: "\A";
 }
 
 input::before {
-    content: "\A";
+  content: "\A";
+}
+div > div,
+div > div > div {
+  height: 40px;
+  margin-bottom: 20px;
+}
+div > div > p > button {
+  border: none;
+  background-color: #f8f9fa;
+  float: right;
+  margin-top: 5px;
+}
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.collapsible {
+  background-color: #f8f9fa;
+  cursor: pointer;
+  
+  border: none;
+  outline: none;
+}
+
+#users {
+  position: relative;
+  top: 100px;
+  height: 280px;
+  overflow-y: scroll;
+}
+p {
+  font-size: 20px;
+  text-align: center;
+  text-align: middle;
+}
+
+i {
+  font-size: 25px;
+  color: gray;
+}
+
+.bg-light .rounded .m-3 {
+  height: 40px;
 }

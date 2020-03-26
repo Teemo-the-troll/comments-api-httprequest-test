@@ -1,27 +1,128 @@
-<div>
-    <form>
-        <input type="text" name="comment" [(ngModel)]="comment" required>
-        <button (click)="postComment()">Post!</button> <br>
-    </form>
-</div>
+<html>
+  <head>
+    <title>Bootstrap 4 Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+      function hide() {
+        console.log("aaa");
+        var content = document.getElementById("content");
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
+    </script>
+    <style>
+      /* You can add global styles to this file, and also import other style files */
 
+      label::before {
+        content: "\A";
+      }
 
-<div id="info"></div>
+      input::before {
+        content: "\A";
+      }
+      div > div,
+      div > div > div {
+        height: 40px;
+        margin-bottom: 20px;
+      }
+      div > div > p > button {
+        border: none;
+        background-color: #f8f9fa;
+        float: right;
+        margin-top: 5px;
+      }
+      .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #f8f9fa;
+      }
 
+      .collapsible {
+        background-color: #f8f9fa;
+        cursor: pointer;
 
+        border: none;
+        outline: none;
+      }
 
+      #users {
+        position: relative;
+        top: 100px;
+        height: 280px;
+        overflow-y: scroll;
+      }
+      p {
+        font-size: 20px;
+        text-align: center;
+        text-align: middle;
+      }
 
+      i {
+        font-size: 25px;
+        color: gray;
+      }
 
+      .bg-light .rounded .m-3 {
+        height: 40px;
+      }
+    </style>
+  </head>
 
-
-
-
-
-
-
-
-
-
-
-
-<button (click)="logOut()">Log out</button>
+  <body>
+    <div class="container">
+      <nav
+        class="navbar navbar-expand-sm bg-light navbar-light justify-content-center"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Your messages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inbox</a>
+          </li>
+        </ul>
+      </nav>
+      <input type="text" placeholder="Search for users here.." />
+      <div id="users">
+        <div class="bg-light rounded m-3" style="height:40px;">
+          <p>
+            User 1
+          <button onclick="hide()">
+              <i
+                class="far fa-edit"
+                style="float: right; margin-top: 5px; font-size: 25px; color: gray;"
+              ></i>
+            </button>
+          </p>
+        </div>
+        <div class="content" id="content">
+          <input
+            type="text"
+            placeholder="what do you want to tell this user?"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
