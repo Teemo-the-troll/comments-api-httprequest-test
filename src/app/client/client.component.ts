@@ -58,15 +58,12 @@ export class ClientComponent implements OnInit {
 
       if (name === idToFind) {
         wasSent = true;
+
         let body = {
           user_id: localUser.id,
-          body: this.comment,
-          author_id: {
-            id: this.user_id,
-            email: this.user_email,
-            username: this.username
-          }
+          body: this.comment, 
         };
+        
         this.httpClient
           .post<ReturnedData>(url, body, {
             headers: header,
@@ -138,6 +135,8 @@ export class ClientComponent implements OnInit {
       .delete(url, { headers: header, observe: "response" })
       .subscribe();
   }
+
+
 
   getUserComments(id: Number) {
     let url = this._constant.ip + "/comments/?user_id=" + id;
