@@ -9,6 +9,9 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientComponent } from './client/client.component';
 import { ConstantsService } from './common/services/constants.service';
+import { UserComponent } from './user/user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CollapsibleComponent } from './collapsible/collapsible.component';
 
 
 @NgModule({
@@ -16,13 +19,16 @@ import { ConstantsService } from './common/services/constants.service';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ClientComponent
+    ClientComponent,
+    UserComponent,
+    CollapsibleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
     
   ],
   providers: [ConstantsService],

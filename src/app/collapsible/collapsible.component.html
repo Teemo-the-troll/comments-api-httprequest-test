@@ -1,0 +1,12 @@
+<div>
+  <div class="bg-light rounded m-3">
+    <p>
+      <a (click)="hidden = !hidden">
+        <ng-content select="[header]"></ng-content>
+      </a>
+    </p>
+  </div>
+  <div [class.hiddencontent]="hidden" class="bg-light rounded m-3">
+    <ng-content select="[content]"></ng-content>
+  </div>
+</div>

@@ -1,27 +1,62 @@
-<div>
-    <form>
-        <input type="text" name="comment" [(ngModel)]="comment" required>
-        <button (click)="postComment()">Post!</button> <br>
-    </form>
-</div>
+<html>
+  <head>
+    <title>Bootstrap 4 Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
 
-
-<div id="info"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<button (click)="logOut()">Log out</button>
+  <body>
+    <div class="container">
+      <nav
+        class="navbar navbar-expand-sm bg-light navbar-light justify-content-center"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/client">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user">You</a>
+          </li>
+        </ul>
+      </nav>
+      <input type="text" placeholder="Search for users here.." />
+      <div *ngFor="let i of users">
+        <div>
+          <div class="bg-light rounded m-3">
+            <p>
+              {{ i.username }}
+              <button (click)="popup(i)">
+                <i
+                  class="far fa-edit"
+                  style="
+                    float: right;
+                    margin-top: 5px;
+                    font-size: 25px;
+                    color: gray;
+                  "
+                ></i>
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="pagination">
+        <button id="page-button" *ngFor="let i of page" (click)="pageRefresh(i-1)"> {{i}} </button>
+      </div>
+      
+    </div>
+  </body>
+</html>
