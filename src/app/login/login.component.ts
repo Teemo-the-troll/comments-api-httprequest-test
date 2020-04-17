@@ -1,45 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ReturnedData } from 'src/app/data'
-import { Router } from '@angular/router';
-import { ConstantsService } from '../common/services/constants.service';
-
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { ReturnedData } from "src/app/ReturnedData";
+import { Router } from "@angular/router";
+import { ConstantsService } from "../common/services/constants.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-
-
-  constructor(private httpClient: HttpClient, private router: Router, private _constant: ConstantsService) {
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private _constant: ConstantsService
+  ) {
     this.httpClient = httpClient;
-
   }
+
+  
   pass;
   email;
 
-
   getAcesstoken() {
-    let url = 'http://85.160.64.233:3000/session/login'
+    let url = this._constant.ip + "/session/login";
     let body = {
       password: this.pass,
       email: this.email
     };
-    this.httpClient
-      .post<ReturnedData>(url, body)
-      .subscribe((data) => {
+    this.httpClient.post<ReturnedData>(url, body).subscribe(
+      data => {
         this._constant.access_token = data.access_token;
+        sessionStorage.setItem('User-token', data.access_token);
         this.router.navigate(["/client"]);
-
-
-      }, (error) => {
-        console.log(error)
-      });
-
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
   ngOnInit(): void {
+    if(sessionStorage.getItem('User-token')){
+      this._constant.access_token = sessionStorage.getItem('User-token');
+      this.router.navigate(["/client"]);
+    }
   }
-
 }

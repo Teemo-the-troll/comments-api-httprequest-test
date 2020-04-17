@@ -1,9 +1,118 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$comments-api-primary: mat-palette($mat-indigo);
+$comments-api-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$comments-api-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$comments-api-theme: mat-light-theme($comments-api-primary, $comments-api-accent, $comments-api-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($comments-api-theme);
+
 /* You can add global styles to this file, and also import other style files */
 
+
+
 label::before {
-    content: "\A";
+  content: "\A";
+}
+
+#users{
+  height: fit-content;
+}
+#pagination{
+  text-align: center;
+}
+
+#page-button{
+  border-radius: 3px;
+  background-color: #f8f9fa ;
+  border: none;
+  margin-right: 20px;
+  height: 30px;
+  width: 30px;
+  
 }
 
 input::before {
-    content: "\A";
+  content: "\A";
 }
+div > div,
+div > div > div {
+  height: 40px;
+  margin-bottom: 20px;
+}
+div > div > p > button {
+  border: none;
+  background-color: #f8f9fa;
+  float: right;
+  margin-top: 5px;
+}
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+.inbox{
+  height: 300px;
+  width: 300px;
+  background-color: red;
+}
+
+.hiddencontent {
+  padding: 0 18px;
+  height: 0px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.collapsible {
+  background-color: #f8f9fa;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+#welcome{
+  padding-top: 20px;
+}
+
+#users {
+  position: relative;
+  top: 100px;
+  height: 280px;
+}
+p {
+  font-size: 20px;
+  text-align: center;
+  text-align: middle;
+}
+
+i {
+  font-size: 25px;
+  color: gray;
+}
+
+.bg-light .rounded .m-3 {
+  height: 40px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
