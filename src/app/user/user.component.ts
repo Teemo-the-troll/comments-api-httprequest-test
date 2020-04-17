@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   private email:string;
   private id:number;
   private commentsArray:Comment[];
-  private pages;
+  private pages:number[];
 
   get comments(){
     return this.commentsArray;
@@ -27,6 +27,13 @@ export class UserComponent implements OnInit {
 
   get pageCount(){
     return this.pages
+  }
+
+  pageRefresh(page: number) {
+    this.servant.getComments(page).subscribe(
+      (data) => (this.commentsArray = data.body.comments),
+      (error) => console.log(error)
+    );
   }
 
   ngOnInit(): void {
@@ -38,7 +45,9 @@ export class UserComponent implements OnInit {
 
     this.servant.getComments().subscribe(data => {
       this.commentsArray = data.body.comments;
-      this.pages = data.body.page_count;
+      for (let i = 0; i < data.body.page_count + 1; i++) {
+        this.pages.push(i + 1);
+      }
     })
   }
   

@@ -44,5 +44,8 @@
         </app-collapsible>
       </div>
     </div>
+    <div id="pagination">
+      <button id="page-button" *ngFor="let i of pageCount" (click)="pageRefresh(i-1)"> {{i}} </button>
+    </div>
   </div>
 </body>
